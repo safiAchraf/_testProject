@@ -292,7 +292,6 @@ export default function ForestMap({ onMapStateChange }: ForestMapProps) {
 		geoAPI.getRegions().then(async (regionsData) => {
 			setRegions(regionsData);
 			setIsLoading(false);
-			setSelectedRegion("11");
 			loadForestForViewport();
 		});
 
@@ -508,19 +507,16 @@ export default function ForestMap({ onMapStateChange }: ForestMapProps) {
 				<h3 className="font-bold text-sm mb-2">🗺️ Navigation</h3>
 				<ul className="text-xs space-y-1 text-gray-700">
 					<li>
-						• Forest data covers <strong>Île-de-France</strong> only
-					</li>
-					<li>
 						• <strong>BD Forêt</strong> appears when you zoom in (level 7+)
 					</li>
 					<li>
 						• <strong>Cadastre</strong> parcels appear at high zoom (level 14+)
 					</li>
+					<li>• Click a region to zoom in, then a department</li>
 					<li>• Use the polygon tool to analyze forest coverage</li>
 					<li>
 						• Your map position, zoom &amp; layers are{" "}
-						<strong>saved automatically</strong> : they persist when you leave
-						and come back
+						<strong>saved automatically</strong>
 					</li>
 				</ul>
 			</div>
