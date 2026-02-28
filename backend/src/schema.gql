@@ -1,0 +1,61 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserDto {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type MapState {
+  activeFilters: [String!]
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+  selectedCommune: String
+  selectedDepartment: String
+  selectedRegion: String
+  updatedAt: DateTime!
+  visibleLayers: [String!]
+  zoom: Float!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserDto!): User!
+  removeUser(id: String!): Boolean!
+  updateMapState(updateMapStateInput: UpdateMapStateDto!, userId: String!): MapState!
+}
+
+type Query {
+  mapState(userId: String!): MapState!
+  user(id: String!): User!
+  users: [User!]!
+}
+
+input UpdateMapStateDto {
+  activeFilters: [String!]
+  latitude: Float
+  longitude: Float
+  selectedCommune: String
+  selectedDepartment: String
+  selectedRegion: String
+  visibleLayers: [String!]
+  zoom: Float
+}
+
+type User {
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  mapState: MapState
+  updatedAt: DateTime!
+}

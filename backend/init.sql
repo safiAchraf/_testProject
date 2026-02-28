@@ -1,0 +1,9 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS postgis_topology;
+
+DO $$
+BEGIN
+    RAISE NOTICE 'PostGIS version: %', PostGIS_Version();
+END
+$$;
