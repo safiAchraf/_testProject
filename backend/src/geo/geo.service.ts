@@ -95,7 +95,7 @@ export class GeoService {
 			.createQueryBuilder("fz")
 			.select([
 				"fz.id",
-				"fz.osmId",
+				"fz.codeTfv",
 				"fz.name",
 				"fz.species",
 				"fz.forestType",
@@ -148,7 +148,7 @@ export class GeoService {
 			.createQueryBuilder("fz")
 			.select([
 				"fz.id",
-				"fz.osmId",
+				"fz.codeTfv",
 				"fz.name",
 				"fz.species",
 				"fz.forestType",

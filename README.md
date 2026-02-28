@@ -51,19 +51,24 @@ Requires PostgreSQL with PostGIS running locally.
 
 ### Importing Forest Data
 
-Forest data for Île-de-France is sourced from OpenStreetMap:
+    load Shapefiles per department from https://geoservices.ign.fr/bdforet#telechargementv2
+
+1. Download the `.7z` archive for the department(s) you want
+2. Extract the Shapefiles into `backend/data/bdforet/`
+3. Run the import:
 
 ```bash
 cd backend
-npm run import:idf-forest     # downloads from Overpass API
-npm run import:forest-to-db   # imports into PostGIS
+npm run import:bdforet
 ```
+
+The script finds all `.shp` files in `data/bdforet/`, reprojects from Lambert 93 to WGS84, and imports into PostGIS. You can import multiple departments at once.
 
 ## Features
 
 - JWT authentication (register, login, protected routes)
 - Interactive map with satellite imagery and OSM labels
-- BD Forêt layer with species-based color coding (data for Île-de-France)
+- BD Forêt layer with species-based color coding
 - French cadastre parcels via Géoplateforme WMS (visible at zoom 14+)
 - Progressive navigation: click regions → departments → zoom into forest data
 - Polygon drawing tool for forest coverage analysis (species distribution, area in hectares)
@@ -91,5 +96,6 @@ npm run import:forest-to-db   # imports into PostGIS
 
 ## Data Sources
 
-- **BD Forêt V2 (IGN)** — forest polygons from OpenStreetMap (Île-de-France subset)
+- **BD Forêt® V2 (IGN)** — forest inventory Shapefiles, https://geoservices.ign.fr/bdforet
 - **French Cadastre** — Géoplateforme WMS tiles (CADASTRALPARCELS.PARCELLAIRE_EXPRESS)
+- **Communes** — geo.api.gouv.fr

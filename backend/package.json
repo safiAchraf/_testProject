@@ -20,9 +20,7 @@
 		"migration:generate": "npm run typeorm -- migration:generate -d src/config/typeorm.config.ts",
 		"migration:run": "npm run typeorm -- migration:run -d src/config/typeorm.config.ts",
 		"migration:revert": "npm run typeorm -- migration:revert -d src/config/typeorm.config.ts",
-		"import:idf-forest": "node scripts/import-idf-forest.js",
-		"simplify:forest": "node scripts/simplify-forest-data.js",
-		"import:forest-db": "node scripts/import-forest-to-db.js"
+		"import:bdforet": "node scripts/import-bdforet.js"
 	},
 	"dependencies": {
 		"@apollo/server": "^4.9.5",
@@ -51,8 +49,10 @@
 		"passport-jwt": "^4.0.1",
 		"passport-local": "^1.0.0",
 		"pg": "^8.11.3",
+		"proj4": "^2.20.2",
 		"reflect-metadata": "^0.2.1",
 		"rxjs": "^7.8.1",
+		"shapefile": "^0.6.6",
 		"typeorm": "^0.3.19"
 	},
 	"devDependencies": {

@@ -12,7 +12,7 @@ export class ForestZone {
 	id: number;
 
 	@Column({ nullable: true })
-	osmId: string;
+	codeTfv: string;
 
 	@Column({ nullable: true })
 	name: string;
